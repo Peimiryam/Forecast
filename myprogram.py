@@ -35,13 +35,13 @@ if response.status_code == 200:
 
     print(precipitation)
 
-#"It will not rain" for a result equal to 0.0
-#"I don't know" when there is no result or the result is negative
 # "It will rain" for a result greater than 0.0.
     if precipitation > 0.0:
         print("it will rain :(")
+#"It will not rain" for a result equal to 0.0
     elif precipitation == 0.0:
         print("it will not rain :)")
+#"I don't know" when there is no result or the result is negative
     else:
         print("I don't know.")
 
