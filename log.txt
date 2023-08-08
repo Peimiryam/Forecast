@@ -1,0 +1,1 @@
+{'latitude': 51.5, 'longitude': -0.120000124, 'generationtime_ms': 0.3470182418823242, 'utc_offset_seconds': 3600, 'timezone': 'Europe/London', 'timezone_abbreviation': 'BST', 'elevation': 23.0, 'daily_units': {'time': 'iso8601', 'precipitation_sum': 'mm'}, 'daily': {'time': ['2023-08-10'], 'precipitation_sum': [0.0]}}
