@@ -29,40 +29,41 @@ else:
 
 with open('log.txt') as f:
     for line in f:
-        if str(time_data) in line:
+        if time_data in line:
             print(line)
+            break
         else:
             print("No previous query results found. Loading information...")
         
-        API_URL = f'https://api.open-meteo.com/v1/forecast?latitude=51.5085&longitude=-0.1257&daily=precipitation_sum&timezone=Europe%2FLondon&start_date={time_data}&end_date={time_data}'
+            API_URL = f'https://api.open-meteo.com/v1/forecast?latitude=51.5085&longitude=-0.1257&daily=precipitation_sum&timezone=Europe%2FLondon&start_date={time_data}&end_date={time_data}'
 
-        url = API_URL
+            url = API_URL
 
-        response = requests.get(url)
+            response = requests.get(url)
 
-        if response.status_code == 200:
+            if response.status_code == 200:
 
-            data = response.json()
+                data = response.json()
 
-            print(data)
+                print(data)
 
-            program_import.save_data(data)
+                program_import.save_data(data)
 
-            precipitation = data['daily']['precipitation_sum'][0]
+                precipitation = data['daily']['precipitation_sum'][0]
 
-            print(precipitation)
+                print(precipitation)
 
 # "It will rain" for a result greater than 0.0.
-            if precipitation > 0.0:
-                print("it will rain :(")
+                if precipitation > 0.0:
+                    print("it will rain :(")
 #"It will not rain" for a result equal to 0.0
-            elif precipitation == 0.0:
-                print("it will not rain :)")
+                elif precipitation == 0.0:
+                    print("it will not rain :)")
 #"I don't know" when there is no result or the result is negative
-            else:
-                print("I don't know.")
+                else:
+                    print("I don't know.")
 
-        else:
+            else:
     # showing the error message
-            print("Error in the HTTP request")
+                print("Error in the HTTP request")
 
